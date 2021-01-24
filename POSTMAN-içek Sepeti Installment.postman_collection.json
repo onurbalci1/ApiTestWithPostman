@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "c28c3b00-ab3e-48f4-ba2e-41f2affaf275",
+		"name": ":içek Sepeti Installment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Installment value=null",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a8e5ae19-3df0-408c-9496-7d5d86e9116c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0a53efd-a322-46f4-81f1-38a0f5e397ae",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4ccbaa7a-8fd6-4724-880e-07ec7149a98e.mock.pstmn.io/test/installment=",
+					"protocol": "https",
+					"host": [
+						"4ccbaa7a-8fd6-4724-880e-07ec7149a98e",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"test",
+						"installment="
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Installment value=0",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a8e5ae19-3df0-408c-9496-7d5d86e9116c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0a53efd-a322-46f4-81f1-38a0f5e397ae",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonData = JSON.parse(responseBody);",
+							"for(var i = 0; i < jsonData.result.data.products.count(); i++){",
+							"    tests[\"installment\"+i] = jsonData.result.data.products[i].installment === false;",
+							"    tests[\"installmentText\"+i] = jsonData.result.data.products[i].installmentText === \"\";",
+							"    tests[\"productGroupId\"+i] = jsonData.result.data.products[i].productGroupId === 2;",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4ccbaa7a-8fd6-4724-880e-07ec7149a98e.mock.pstmn.io/test/installment=0",
+					"protocol": "https",
+					"host": [
+						"4ccbaa7a-8fd6-4724-880e-07ec7149a98e",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"test",
+						"installment=0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Installment value=1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a8e5ae19-3df0-408c-9496-7d5d86e9116c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0a53efd-a322-46f4-81f1-38a0f5e397ae",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonData = JSON.parse(responseBody);",
+							"for(var i = 0; i < jsonData.result.data.products.count(); i++){",
+							"    tests[\"installment\"+i] = jsonData.result.data.products[i].installment === true;",
+							"    tests[\"installmentText\"+i] = jsonData.result.data.products[i].installmentText !== \"\";",
+							"    tests[\"productGroupId\"+i] = jsonData.result.data.products[i].productGroupId === 1;",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4ccbaa7a-8fd6-4724-880e-07ec7149a98e.mock.pstmn.io/test/installment=1",
+					"protocol": "https",
+					"host": [
+						"4ccbaa7a-8fd6-4724-880e-07ec7149a98e",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"test",
+						"installment=1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
